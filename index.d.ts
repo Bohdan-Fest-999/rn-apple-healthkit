@@ -1,8 +1,8 @@
 declare module "rn-apple-healthkit" {
     export interface HealthKitPermissions {
         permissions: {
-            read: string[];
-            write: string[];
+            read: string[],
+            write: string[],
         }
     }
 
@@ -31,39 +31,24 @@ declare module "rn-apple-healthkit" {
         date?: Date | undefined, // default now
     }
 
-    export interface AppleHealthKit {
-        initHealthKit(permissions: HealthKitPermissions, callback: (error: string, result: Object) => void): void
-        saveFood(options: Object, callback: (error: string, result: Object) => void): void
-        isAvailable(callback: (error: Object, results: boolean) => void): void
-        getDateOfBirth(options: any, callback: (error: Object, results: HealthDateOfBirth) => void): void
-        getLatestHeight(options: HealthUnitOptions, callback: (err: string, results: HealthValue) => void): void
-        getLatestWeight(options: HealthUnitOptions, callback: (err: string, results: HealthValue) => void): void
-        getMindfulSession(options: MindfulSessionData, callback: (err: string, results: HealthValue) => void): void
-        getStepCount(options: DateObject, callback: (err: string, results: HealthValue) => void): void
-        getActiveEnergyBurned(dateRange: DateRange, callback: (error: Object, result: HealthValue) => void): void
-        getBasalEnergyBurned(dateRange: DateRange, callback: (error: Object, result: any) => void): void
-        getDailyStepCountSamples(dateRange: DateRange, callback: (error: Object, result: Array<HealthValue>) => void): void
-        getDailyDistanceCyclingSamples(dateRange: DailyDistanceOptions, callback: (error: Object, results: Array<HealthValue>) => void): void
-        getDailyDistanceWalkingRunningSamples(dateRange: DailyDistanceOptions, callback: (error: Object, results: Array<HealthValue>) => void): void
-        getDailyFlightsClimbedSamples(dateRange: DailyDistanceOptions, callback: (error: Object, results: Array<HealthValue>) => void): void
-        getDistanceCycling(dateRange: DistanceOptions | undefined, callback: (error: Object, results: HealthValue) => void): void
-        getDistanceWalkingRunning(dateRange: DistanceOptions | undefined, callback: (error: Object, results: HealthValue) => void): void
-        getFlightsClimbed(date: DateObject, callback: (error: Object, result: HealthValue) => void): void
+    export interface HKError {
+        code?: string | undefined,
+        message?: string | undefined,
     }
 
     export interface HealthDateOfBirth {
-        value: string;
-        age: number;
+        value: string,
+        age: number,
     }
 
     export interface HealthValue {
-        value: number;
-        startDate: string;
-        endDate: string;
+        value: number,
+        startDate: string,
+        endDate: string,
     }
 
     export interface HealthUnitOptions {
-        unit: HealthUnit;
+        unit: HealthUnit,
     }
     export enum HealthUnit {
         bpm = "bpm",
@@ -86,6 +71,26 @@ declare module "rn-apple-healthkit" {
         percent = "percent",
         pound = "pound",
         second = "second"
+    }
+
+    export interface AppleHealthKit {
+        initHealthKit(permissions: HealthKitPermissions, callback: (error: string, result: Object) => void): void
+        saveFood(options: Object, callback: (error: string, result: Object) => void): void
+        isAvailable(callback: (error: Object, results: boolean) => void): void
+        getDateOfBirth(options: any, callback: (error: HKError, results: HealthDateOfBirth) => void): void
+        getLatestHeight(options: HealthUnitOptions, callback: (err: string, results: HealthValue) => void): void
+        getLatestWeight(options: HealthUnitOptions, callback: (err: string, results: HealthValue) => void): void
+        getMindfulSession(options: MindfulSessionData, callback: (err: string, results: HealthValue) => void): void
+        getStepCount(options: DateObject, callback: (err: string, results: HealthValue) => void): void
+        getActiveEnergyBurned(dateRange: DateRange, callback: (error: HKError, result: HealthValue) => void): void
+        getBasalEnergyBurned(dateRange: DateRange, callback: (error: HKError, result: any) => void): void
+        getDailyStepCountSamples(dateRange: DateRange, callback: (error: HKError, result: Array<HealthValue>) => void): void
+        getDailyDistanceCyclingSamples(dateRange: DailyDistanceOptions, callback: (error: HKError, results: Array<HealthValue>) => void): void
+        getDailyDistanceWalkingRunningSamples(dateRange: DailyDistanceOptions, callback: (error: HKError, results: Array<HealthValue>) => void): void
+        getDailyFlightsClimbedSamples(dateRange: DailyDistanceOptions, callback: (error: HKError, results: Array<HealthValue>) => void): void
+        getDistanceCycling(dateRange: DistanceOptions | undefined, callback: (error: HKError, results: HealthValue) => void): void
+        getDistanceWalkingRunning(dateRange: DistanceOptions | undefined, callback: (error: HKError, results: HealthValue) => void): void
+        getFlightsClimbed(date: DateObject, callback: (error: HKError, result: HealthValue) => void): void
     }
 
     const appleHealthKit: AppleHealthKit;
