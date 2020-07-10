@@ -1,4 +1,12 @@
 declare module "rn-apple-healthkit" {
+    import { Permissions, } from './Constants/Permissions'
+    
+
+
+    export const HKPermissions = Permissions
+
+
+    
     export interface HealthKitPermissions {
         permissions: {
             read: string[],
@@ -13,12 +21,12 @@ declare module "rn-apple-healthkit" {
     }
 
     export interface DateObject {
-        date: string | null,
+        date: string | undefined,
     }
 
     export interface DateRange {
-        startDate: Date,
-        endDate?: Date | null | undefined, // optional; default now
+        startDate: string,
+        endDate?: string | null | undefined, // optional; default now
     }
 
     export interface DailyDistanceOptions extends DateRange {
@@ -26,9 +34,9 @@ declare module "rn-apple-healthkit" {
         limit?: number | undefined,      // default no limit
     }
 
-    export interface DistanceOptions extends DateRange {
+    export interface DistanceOptions {
         unit?: string | undefined, // default 'meter'
-        date?: Date | undefined, // default now
+        date?: string | undefined, // default now
     }
 
     export interface HKError {
