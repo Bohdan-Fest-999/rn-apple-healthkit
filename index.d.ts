@@ -40,15 +40,15 @@ declare module "rn-apple-healthkit" {
         getLatestWeight(options: HealthUnitOptions, callback: (err: string, results: HealthValue) => void): void
         getMindfulSession(options: MindfulSessionData, callback: (err: string, results: HealthValue) => void): void
         getStepCount(options: DateObject, callback: (err: string, results: HealthValue) => void): void
-        getActiveEnergyBurned(dateRange: DateRange, callback: (error: Object, result: any) => void)
-        getBasalEnergyBurned(dateRange: DateRange, callback: (error: Object, result: any) => void)
-        getDailyStepCountSamples(dateRange: DateRange, callback: (error: Object, result: Array<any>) => void)
-        getDailyDistanceCyclingSamples(dateRange: DailyDistanceOptions, callback: (error: Object, results: Array<any>) => void)
-        getDailyDistanceWalkingRunningSamples(dateRange: DailyDistanceOptions, callback: (error: Object, results: Array<any>) => void)
-        getDailyFlightsClimbedSamples(dateRange: DailyDistanceOptions, callback: (error: Object, results: Array<any>) => void)
-        getDistanceCycling(dateRange: DistanceOptions | undefined, callback: (error: Object, results: any) => void)
-        getDistanceWalkingRunning(dateRange: DistanceOptions | undefined, callback: (error: Object, results: any) => void)
-        getFlightsClimbed(date: DateObject, callback: (error: Object, result: any) => void)
+        getActiveEnergyBurned(dateRange: DateRange, callback: (error: Object, result: any) => void): void
+        getBasalEnergyBurned(dateRange: DateRange, callback: (error: Object, result: any) => void): void
+        getDailyStepCountSamples(dateRange: DateRange, callback: (error: Object, result: Array<any>) => void): void
+        getDailyDistanceCyclingSamples(dateRange: DailyDistanceOptions, callback: (error: Object, results: Array<any>) => void): void
+        getDailyDistanceWalkingRunningSamples(dateRange: DailyDistanceOptions, callback: (error: Object, results: Array<any>) => void): void
+        getDailyFlightsClimbedSamples(dateRange: DailyDistanceOptions, callback: (error: Object, results: Array<any>) => void): void
+        getDistanceCycling(dateRange: DistanceOptions | undefined, callback: (error: Object, results: any) => void): void
+        getDistanceWalkingRunning(dateRange: DistanceOptions | undefined, callback: (error: Object, results: any) => void): void
+        getFlightsClimbed(date: DateObject, callback: (error: Object, result: any) => void): void
     }
 
     export interface HealthDateOfBirth {
