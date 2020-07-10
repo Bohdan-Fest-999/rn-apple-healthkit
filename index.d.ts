@@ -2,8 +2,8 @@ declare module "rn-apple-healthkit" {
 
     export interface HealthKitPermissions {
         permissions: {
-            read: HealthPermissions[],
-            write: HealthPermissions[],
+            read: string[],
+            write: string[],
         }
     }
 
