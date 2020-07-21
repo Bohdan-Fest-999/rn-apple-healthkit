@@ -156,7 +156,7 @@ declare module "rn-apple-healthkit" {
         getLatestWeight(options: HealthUnitOptions, callback: (err: string, results: HealthValue) => void): void
         getMindfulSession(options: MindfulSessionData, callback: (err: string, results: HealthValue) => void): void
         getStepCount(options: DateObject, callback: (err: string, results: HealthValue) => void): void
-        getActiveEnergyBurned(dateRange: DateRange, callback: (error: HKError, result: HealthValue) => void): void
+        getActiveEnergyBurned(dateRange: DateRange, callback: (error: HKError, result: Array<HealthValue>) => void): void
         getBasalEnergyBurned(dateRange: DateRange, callback: (error: HKError, result: any) => void): void
         getDailyStepCountSamples(dateRange: DateRange, callback: (error: HKError, result: Array<HealthValue>) => void): void
         getDailyDistanceCyclingSamples(dateRange: DailyDistanceOptions, callback: (error: HKError, results: Array<HealthValue>) => void): void
